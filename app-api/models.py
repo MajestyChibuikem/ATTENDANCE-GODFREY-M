@@ -24,3 +24,4 @@ def get_attendance(user_id, start_date, end_date):
         (user_id, start_date, end_date)
     )
     return cursor.fetchall()
+
