@@ -1,8 +1,13 @@
-from app import db
+from flask import current_app as app
+from flask_sqlalchemy import SQLAlchemy
+
+# Declare db without initializing it yet
+db = SQLAlchemy()
+
+# Define models here
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
-    # Use hashed passwords
     password = db.Column(db.String(128), nullable=False)  
     device_key = db.Column(db.String(128), unique=True, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
